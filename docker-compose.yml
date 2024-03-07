@@ -1,0 +1,18 @@
+version: '3'
+services:
+  franken:
+    tty: true
+    environment:
+      FRANKENPHP_CONFIG: "worker ./public/index.php 3"
+      MAX_REQUESTS: 25
+      CADDY_GLOBAL_OPTIONS: debug
+    container_name: frankenphp-test
+    image: dunglas/frankenphp
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./app:/app/public
+      
