@@ -2,7 +2,7 @@
 
 ignore_user_abort(true);
 
-require 'app.php';
+require '../src/app.php';
 
 $app = new App;
 

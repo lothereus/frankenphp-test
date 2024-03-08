@@ -3,8 +3,6 @@ services:
   franken:
     tty: true
     environment:
-      FRANKENPHP_CONFIG: "worker ./public/index.php 3"
-      MAX_REQUESTS: 25
       CADDY_GLOBAL_OPTIONS: debug
     container_name: frankenphp-test
     image: dunglas/frankenphp
@@ -14,6 +12,6 @@ services:
       - "443:443"
       - "443:443/udp"
     volumes:
-      - ./worker:/app/public
+      - ./no-worker:/app/public
       - ./src:/app/src
       
